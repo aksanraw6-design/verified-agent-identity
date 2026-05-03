@@ -1,0 +1,32 @@
+name: Verify Human Identity
+
+on:
+  workflow_dispatch:
+    inputs:
+      agent_name:
+        description: 'aksanraw6'
+        required: true
+        default: 'aksanraw6'
+      agent_description:
+        description: 'aksanraw6 Description'
+        required: true
+        default: 'aksanraw6'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run verification
+        run: echo "Verification success for ${{ github.event.inputs.agent_aksanraw6}}"
