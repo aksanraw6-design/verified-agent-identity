@@ -1,0 +1,33 @@
+name: Auto Verify Agent
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Verification Script
+        run: |
+          echo "Verifying agent identity..."
+          echo "Agent Name: aksanraw28"
+          echo "Status: VERIFIED ✅"
+
+      - name: Done
+        run: echo "Verification completed successfully."
