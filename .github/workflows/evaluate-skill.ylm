@@ -1,0 +1,12 @@
+name: Verify Human Identity
+
+on:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print message
+        run: echo "Workflow berhasil jalan!"
